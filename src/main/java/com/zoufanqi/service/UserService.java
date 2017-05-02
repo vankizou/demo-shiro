@@ -1,6 +1,6 @@
-package com.vanki.service;
+package com.zoufanqi.service;
 
-import com.vanki.bean.User;
+import com.zoufanqi.bean.User;
 
 import java.util.Set;
 

@@ -1,8 +1,8 @@
-package com.vanki.service.impl;
+package com.zoufanqi.service.impl;
 
-import com.vanki.bean.User;
-import com.vanki.mapper.UserMapper;
-import com.vanki.service.UserService;
+import com.zoufanqi.bean.User;
+import com.zoufanqi.mapper.UserMapper;
+import com.zoufanqi.service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

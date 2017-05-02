@@ -11,8 +11,8 @@
         http://www.springframework.org/schema/mvc 
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <context:component-scan base-package="com.vanki.controller"/>
-    <context:component-scan base-package="com.vanki.aspect"/>
+    <context:component-scan base-package="com.zoufanqi.controller"/>
+    <context:component-scan base-package="com.zoufanqi.aspect"/>
     <aop:aspectj-autoproxy proxy-target-class="true"/>
     <context:annotation-config/>
 

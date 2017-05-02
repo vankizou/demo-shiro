@@ -1,4 +1,4 @@
-package com.vanki.bean;
+package com.zoufanqi.bean;
 
 public class Role {
     private Integer id;

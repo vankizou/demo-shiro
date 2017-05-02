@@ -1,7 +1,7 @@
-package com.vanki.realm;
+package com.zoufanqi.realm;
 
-import com.vanki.bean.User;
-import com.vanki.service.UserService;
+import com.zoufanqi.bean.User;
+import com.zoufanqi.service.UserService;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;

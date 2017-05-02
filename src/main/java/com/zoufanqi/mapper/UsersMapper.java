@@ -1,7 +1,7 @@
-package com.vanki.mapper;
+package com.zoufanqi.mapper;
 
-import com.vanki.bean.Users;
-import com.vanki.bean.UsersExample;
+import com.zoufanqi.bean.Users;
+import com.zoufanqi.bean.UsersExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

@@ -1,7 +1,7 @@
-package com.vanki.mapper;
+package com.zoufanqi.mapper;
 
-import com.vanki.bean.Role;
-import com.vanki.bean.RoleExample;
+import com.zoufanqi.bean.Role;
+import com.zoufanqi.bean.RoleExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

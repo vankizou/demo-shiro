@@ -1,4 +1,4 @@
-package com.vanki.aspect;
+package com.zoufanqi.aspect;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -13,7 +13,7 @@ public class TimeAspect {
 
     private final static Logger logger = LoggerFactory.getLogger(TimeAspect.class);
 
-    @Around("execution(* com.vanki.controller.*.*(..))")
+    @Around("execution(* com.zoufanqi.controller.*.*(..))")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
         long start = System.currentTimeMillis();
         String methodName = joinPoint.getSignature().getName();

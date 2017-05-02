@@ -1,6 +1,6 @@
-package com.vanki.controller;
+package com.zoufanqi.controller;
 
-import com.vanki.bean.User;
+import com.zoufanqi.bean.User;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.session.Session;

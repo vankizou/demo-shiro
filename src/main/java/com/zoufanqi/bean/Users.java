@@ -1,13 +1,11 @@
-package com.vanki.bean;
+package com.zoufanqi.bean;
 
-public class User {
+public class Users {
     private Integer id;
 
     private String userName;
 
     private String password;
-
-    private Integer roleId;
 
     public Integer getId() {
         return id;
@@ -31,13 +29,5 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public Integer getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(Integer roleId) {
-        this.roleId = roleId;
     }
 }

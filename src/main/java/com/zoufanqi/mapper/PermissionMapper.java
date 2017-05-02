@@ -1,7 +1,7 @@
-package com.vanki.mapper;
+package com.zoufanqi.mapper;
 
-import com.vanki.bean.Permission;
-import com.vanki.bean.PermissionExample;
+import com.zoufanqi.bean.Permission;
+import com.zoufanqi.bean.PermissionExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

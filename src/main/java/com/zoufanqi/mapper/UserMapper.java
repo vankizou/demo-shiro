@@ -1,7 +1,7 @@
-package com.vanki.mapper;
+package com.zoufanqi.mapper;
 
-import com.vanki.bean.User;
-import com.vanki.bean.UserExample;
+import com.zoufanqi.bean.User;
+import com.zoufanqi.bean.UserExample;
 import java.util.List;
 import java.util.Set;
 
