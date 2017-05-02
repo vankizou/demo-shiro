@@ -1,2 +1,1 @@
-# demo-shiro
-shiro+springmvc+mysql+mysql
+# shirodemo
