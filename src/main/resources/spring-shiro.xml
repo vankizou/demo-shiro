@@ -31,10 +31,12 @@
         <!-- Shiro连接约束配置,即过滤链的定义 -->
         <property name="filterChainDefinitions">
             <value>
-                /login=anon
-                /admin*=authc   <!--当有admin的URL请求就会 开始身份认证-->
-                /student=roles[teacher]  <!--当有student的URL请求就会 开始  角色认证-->
-                /teacher=perms["user:create"]<!--当有teacher的URL请求就会 开始权限认证-->
+                /user/a=anon
+                /user/**=authc
+                /user/b=authc
+                <!--/user/c=user-->
+                <!--/**=user-->
+                /user/login=anon
             </value>
         </property>
     </bean>

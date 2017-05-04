@@ -2,16 +2,14 @@ package com.zoufanqi.realm;
 
 import com.zoufanqi.bean.User;
 import com.zoufanqi.service.UserService;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.SimpleAuthenticationInfo;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 
 import javax.annotation.Resource;
+import java.util.Set;
 
 public class MyRealm extends AuthorizingRealm {
     @Resource
@@ -24,13 +22,16 @@ public class MyRealm extends AuthorizingRealm {
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         //获取当前登入的用户名  
         String userName = (String) principals.getPrimaryPrincipal();
+        if (userName != null) return null;
 
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
         //根据此用户名查询是否拥有   此角色  
-        //返回的是一个字符串集合  
-        authorizationInfo.setRoles(userService.getRoles(userName));
-        //根据用户名查询是否拥有   此权限  
-        authorizationInfo.setStringPermissions(userService.getPermissions(userName));
+        //返回的是一个字符串集合
+        Set<String> a = userService.getRoles(userName);
+        authorizationInfo.setRoles(a);
+        //根据用户名查询是否拥有   此权限
+        Set<String> b = userService.getPermissions(userName);
+        authorizationInfo.setStringPermissions(b);
         return authorizationInfo;
     }
 
@@ -39,16 +40,23 @@ public class MyRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-        //获取当前登入的用户名  
-        String userName = (String) token.getPrincipal();
+        UsernamePasswordToken uToken = (UsernamePasswordToken)token;
+        String userName = uToken.getUsername();
+        char[] passwords = uToken.getPassword();
+
+        if (userName == null || passwords == null) return null;
+
+        StringBuilder sb = new StringBuilder();
+        for (char c : passwords) {
+            sb.append(c);
+        }
+        String password = sb.toString();
+
         //根据用户名查询此用户是否存在
         User user = userService.getByUserName(userName);
-        if (user != null) {
-            //如果存在就
-            AuthenticationInfo authcInfo = new SimpleAuthenticationInfo(user.getUserName(), user.getPassword(), "xx");
-            return authcInfo;
-        } else {
-            return null;
-        }
+        if (user == null || !password.equals(user.getPassword())) return null;
+
+        AuthenticationInfo authcInfo = new SimpleAuthenticationInfo(userName, user.getPassword(), getName());
+        return authcInfo;
     }
 } 
